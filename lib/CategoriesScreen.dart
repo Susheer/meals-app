@@ -6,6 +6,7 @@ class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen();
   Widget _renderBody(BuildContext context){
     return GridView(
+      padding: EdgeInsets.all(9),
         children: DUMMY_CATEGORIES
             .map((cItem) => CategoryItem(cItem.title, cItem.color))
             .toList(),
