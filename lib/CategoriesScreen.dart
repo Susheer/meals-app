@@ -4,17 +4,22 @@ import './dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen();
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _renderBody(BuildContext context){
     return GridView(
         children: DUMMY_CATEGORIES
-              .map((cItem) => CategoryItem(cItem.title, cItem.color))
-              .toList(),
+            .map((cItem) => CategoryItem(cItem.title, cItem.color))
+            .toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
             childAspectRatio: 3 / 2,
-            mainAxisExtent: 20,
+            mainAxisSpacing: 20,
             crossAxisSpacing: 20));
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _renderBody(context),
+      appBar: AppBar(title: const Text('Desi meal'),),
+    );
   }
 }
